@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\DeGustator\Repository\Repository;
+use App\DeGustator\Gateway\Gateway;
 
 class HomeController extends Controller
 {
@@ -11,9 +12,11 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Repository $Repository, Gateway $Gateway)
     {
-        $this->middleware('auth');
+       /* $this->middleware('auth');*/
+        $this->R = $Repository;
+        $this->G = $Gateway;
     }
 
     /**
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        echo $this->G->test();
+        echo $this->R->test();
+        //return view('home');
     }
 }

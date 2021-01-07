@@ -26,5 +26,8 @@ class FoodSeeder extends Seeder
         DB::table('foods')->insert([
             'name' => 'chabanina',
         ]);
+        DB::table('foods')->insert([
+            'name' => 'kielbaska',
+        ]);
     }
 }

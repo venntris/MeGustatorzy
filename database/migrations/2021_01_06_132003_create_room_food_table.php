@@ -14,10 +14,10 @@ class CreateRoomFoodTable extends Migration
     public function up()
     {
         Schema::create('room_food', function (Blueprint $table) {
-            $table->biginteger('room_ID')->unsigned();
-            $table->foreign('room_ID')->references('id')->on('rooms');
-            $table->biginteger('food_ID')->unsigned();
-            $table->foreign('food_ID')->references('id')->on('foods');
+            $table->biginteger('room_id')->unsigned();
+            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->biginteger('food_id')->unsigned();
+            $table->foreign('food_id')->references('id')->on('foods');
         });
     }
 

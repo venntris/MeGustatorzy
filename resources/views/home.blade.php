@@ -11,12 +11,10 @@
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
-                            {{ __('You are logged in!') }}
                         </div>
                     @endif
-                    @if(auth())
-                    
-                    @endif
+
+                    {{ __('You are logged in!') }}
                 </div>
             </div>
         </div>

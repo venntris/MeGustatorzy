@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('api/user/get-user-rooms/', [FrontendController::class, 'getUserRooms'])->name('get-user-rooms');
 
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');

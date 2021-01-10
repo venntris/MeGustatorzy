@@ -29,9 +29,7 @@ class Repository
                 'room_id' => $room_id,
                 'user_id' => $user_id,
             ]);
-
             return response()->json(['message' => 'Użytkownik dodany']);
-
         }
         return response()->json(['message' => 'Użytkownik jest obecnie w pokoju'], 404);
 

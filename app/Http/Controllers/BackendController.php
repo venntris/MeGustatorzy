@@ -23,6 +23,9 @@ class BackendController extends Controller
     public function inviteUserToRoom($room_id, $user_id) {
         return $this->R->inviteUserToRoom($room_id, $user_id);
     }
+    public function createRoom($name) {
+        return $this->R->createRoom($name);
+    }
 
 
 }

@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $table = 'rooms';
+    protected $fillable = [
+        'owner',
+        'name'
+    ];
 
 }

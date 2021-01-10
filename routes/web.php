@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::get('api/user/get-user-rooms/{user_id}', [BackendController::class, 'getUserRooms'])->name('get-user-rooms');
 Route::get('api/room/invite/{room_id}/{user_id}', [BackendController::class, 'inviteUserToRoom'])->name('inviteUserToRoom');
 
+Route::get('api/room/create-room/{roomName}', [BackendController::class, 'createRoom'])->name('createRoom');
+
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
     Artisan::call('route:clear');

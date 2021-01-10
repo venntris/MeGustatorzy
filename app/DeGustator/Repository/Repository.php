@@ -6,6 +6,7 @@ use App\DeGustator\Traits\UserRoomTrait;
 use App\Models\UserRoom;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Room;
 
 /* Lecture 27 */
 class Repository
@@ -32,6 +33,15 @@ class Repository
             return response()->json(['message' => 'Użytkownik dodany']);
         }
         return response()->json(['message' => 'Użytkownik jest obecnie w pokoju'], 404);
+
+    }
+    public function createRoom($name)
+    {
+        Room::create([
+            'owner'=>auth()->user()->id,
+            'name'=>$name,
+        ]);
+        return response()->json(['message' => 'Pokój został utworzony']);
 
     }
 }

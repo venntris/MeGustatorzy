@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 /* Lecture 27 */
+
 class Repository
 {
     use UserRoomTrait;
+
     function test()
     {
         return 'repozytorium dziala';
@@ -24,7 +26,7 @@ class Repository
 
     public function inviteUserToRoom($room_id, $user_id)
     {
-        if ($this->isUserInTheRoom($room_id, $user_id)) {
+        if (!$this->isUserInTheRoom($room_id, $user_id)) {
             UserRoom::create([
                 'room_id' => $room_id,
                 'user_id' => $user_id,
@@ -32,7 +34,18 @@ class Repository
             return response()->json(['message' => 'Użytkownik dodany']);
         }
         return response()->json(['message' => 'Użytkownik jest obecnie w pokoju'], 404);
+    }
 
+    public function deleteUserFromRoom($room_id, $user_id)
+    {
+        if ($this->isUserInTheRoom($room_id, $user_id)) {
+            UserRoom::where('room_id', $room_id)
+                ->where('user_id', $user_id)
+                ->delete();
+            return response()->json(['message' => 'Użytkownik usunięty']);
+        }
+
+        return response()->json(['message' => 'Użytkownika nie ma w pokoju'], 404);
     }
 }
 

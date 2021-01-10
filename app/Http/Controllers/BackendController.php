@@ -24,5 +24,9 @@ class BackendController extends Controller
         return $this->R->inviteUserToRoom($room_id, $user_id);
     }
 
+    public function deleteUserFromRoom($room_id, $user_id) {
+        return $this->R->deleteUserFromRoom($room_id, $user_id);
+    }
+
 
 }

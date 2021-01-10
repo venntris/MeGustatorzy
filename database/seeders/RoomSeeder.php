@@ -23,7 +23,7 @@ class RoomSeeder extends Seeder
             'name' => 'Restauracja 1',
         ]);
         DB::table('rooms')->insert([
-            'owner' => 2,
+            'owner' => 4,
             'name' => 'Restauracja 2',
         ]);
     }

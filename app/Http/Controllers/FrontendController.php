@@ -15,9 +15,8 @@ class FrontendController extends Controller
         $this->G = $Gateway;
     }
 
-    public function getUserRooms()
+    public function getUserRooms($user_id)
     {
-        //return $this->R->getUserRooms();
-        dd($this->R->getUserRooms());
+        return $this->R->getUserRooms($user_id);
     }
 }

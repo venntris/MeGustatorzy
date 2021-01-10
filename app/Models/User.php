@@ -33,15 +33,14 @@ class User extends Authenticatable
     }
     public function rooms()
     {
-        return $this->hasMany('App\Models\UserRoom');
-       /* return $this->hasOneThrough(
+        return $this->hasManyThrough(
             Room::class,
             UserRoom::class,
-            'room_id', // Foreign key on the cars table...
+            'user_id', // Foreign key on the cars table...
             'id', // Foreign key on the owners table...
             'id', // Local key on the mechanics table...
-            'user_id' // Local key on the cars table...
-        );*/
+            'room_id' // Local key on the cars table...
+        );
     }
     /**
      * The attributes that should be hidden for arrays.

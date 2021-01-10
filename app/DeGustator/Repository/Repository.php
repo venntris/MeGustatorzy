@@ -3,15 +3,18 @@
 namespace App\DeGustator\Repository;
 
 use App\DeGustator\Traits\UserRoomTrait;
+use App\DeGustator\Traits\RoomFoodTrait;
 use App\Models\UserRoom;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Room;
+use App\Models\RoomFood;
 
 /* Lecture 27 */
 class Repository
 {
     use UserRoomTrait;
+    use RoomFoodTrait;
     function test()
     {
         return 'repozytorium dziala';
@@ -33,6 +36,18 @@ class Repository
             return response()->json(['message' => 'Użytkownik dodany']);
         }
         return response()->json(['message' => 'Użytkownik jest obecnie w pokoju'], 404);
+
+    }
+    public function addFoodToRoom($room_id, $food_id)
+    {
+        if ($this->isUserFoodInTheRoom($room_id, $food_id)) {
+            RoomFood::create([
+                'room_id' => $room_id,
+                'food_id' => $food_id,
+            ]);
+            return response()->json(['message' => 'Posiłek dodany']);
+        }
+        return response()->json(['message' => 'Posiłek jest już dodany do degustacji'], 404);
 
     }
     public function createRoom($name)

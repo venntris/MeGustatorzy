@@ -30,5 +30,9 @@ class BackendController extends Controller
         return $this->R->addFoodToRoom($room_id, $food_id);
     }
 
+    public function deleteUserFromRoom($room_id, $user_id) {
+        return $this->R->deleteUserFromRoom($room_id, $user_id);
+    }
+
 
 }

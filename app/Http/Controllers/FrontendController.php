@@ -14,9 +14,9 @@ class FrontendController extends Controller
         $this->R = $Repository;
         $this->G = $Gateway;
     }
-
+/*
     public function getUserRooms($user_id)
     {
         return $this->R->getUserRooms($user_id);
-    }
+    }*/
 }

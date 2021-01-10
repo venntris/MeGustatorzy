@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\BackendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,8 @@ use App\Http\Controllers\FrontendController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('api/user/get-user-rooms/{user_id}', [FrontendController::class, 'getUserRooms'])->name('get-user-rooms');
+Route::get('api/user/get-user-rooms/{user_id}', [BackendController::class, 'getUserRooms'])->name('get-user-rooms');
+Route::get('api/room/invite/{room_id}/{user_id}', [BackendController::class, 'inviteUserToRoom'])->name('inviteUserToRoom');
 
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');

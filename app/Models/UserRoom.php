@@ -9,6 +9,11 @@ class UserRoom extends Model
 {
     use HasFactory;
     protected $table = 'users_rooms';
+    protected $fillable = [
+        'user_id',
+        'room_id'
+    ];
+    public $timestamps = false;
 
     public function users()
     {

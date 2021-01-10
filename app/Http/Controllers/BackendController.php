@@ -21,19 +21,7 @@ class BackendController extends Controller
     }
 
     public function inviteUserToRoom($room_id, $user_id) {
-        if(!UserRoom::where('room_id', $room_id)
-            ->where('user_id', $user_id)
-            ->first()) {
-            UserRoom::create([
-                'room_id' => $room_id,
-                'user_id' =>$user_id,
-            ]);
-        }
-
-        UserRoom::create([
-           'room_id' => $room_id,
-           'user_id' =>$user_id,
-        ]);
+        return $this->R->inviteUserToRoom($room_id, $user_id);
 
 
     }

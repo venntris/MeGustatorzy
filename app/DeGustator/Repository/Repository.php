@@ -2,6 +2,7 @@
 
 namespace App\DeGustator\Repository;
 
+use App\DeGustator\Traits\UserRoomTrait;
 use App\Models\UserRoom;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -9,6 +10,7 @@ use App\Models\User;
 /* Lecture 27 */
 class Repository
 {
+    use UserRoomTrait;
     function test()
     {
         return 'repozytorium dziala';
@@ -22,9 +24,7 @@ class Repository
 
     public function inviteUserToRoom($room_id, $user_id)
     {
-        if (!UserRoom::where('room_id', $room_id)
-            ->where('user_id', $user_id)
-            ->first()) {
+        if ($this->isUserInTheRoom($room_id, $user_id)) {
             UserRoom::create([
                 'room_id' => $room_id,
                 'user_id' => $user_id,

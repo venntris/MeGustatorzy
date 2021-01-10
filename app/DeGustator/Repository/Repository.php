@@ -2,6 +2,7 @@
 
 namespace App\DeGustator\Repository;
 
+use App\DeGustator\Traits\RoomTrait;
 use App\DeGustator\Traits\UserRoomTrait;
 use App\DeGustator\Traits\RoomFoodTrait;
 use App\Models\UserRoom;
@@ -15,6 +16,7 @@ class Repository
 {
     use UserRoomTrait;
     use RoomFoodTrait;
+    use RoomTrait;
 
     function test()
     {
@@ -29,26 +31,33 @@ class Repository
 
     public function inviteUserToRoom($room_id, $user_id)
     {
-        if (!$this->isUserInTheRoom($room_id, $user_id)) {
-            UserRoom::create([
-                'room_id' => $room_id,
-                'user_id' => $user_id,
-            ]);
-            return response()->json(['message' => 'Użytkownik dodany']);
+        if ($this->isUserRoomOwner($room_id)) {
+            if (!$this->isUserInTheRoom($room_id, $user_id)) {
+                UserRoom::create([
+                    'room_id' => $room_id,
+                    'user_id' => $user_id,
+                ]);
+                return response()->json(['message' => 'Użytkownik dodany']);
+            }
+            return response()->json(['message' => 'Użytkownik jest obecnie w pokoju'], 404);
         }
-        return response()->json(['message' => 'Użytkownik jest obecnie w pokoju'], 404);
+        return response()->json(['message' => 'Nie jesteś właścicielem pokoju'], 404);
+
     }
 
     public function deleteUserFromRoom($room_id, $user_id)
     {
-        if ($this->isUserInTheRoom($room_id, $user_id)) {
-            UserRoom::where('room_id', $room_id)
-                ->where('user_id', $user_id)
-                ->delete();
-            return response()->json(['message' => 'Użytkownik usunięty']);
-        }
+        if ($this->isUserRoomOwner($room_id)) {
+            if ($this->isUserInTheRoom($room_id, $user_id)) {
+                UserRoom::where('room_id', $room_id)
+                    ->where('user_id', $user_id)
+                    ->delete();
+                return response()->json(['message' => 'Użytkownik usunięty']);
+            }
 
-        return response()->json(['message' => 'Użytkownika nie ma w pokoju'], 404);
+            return response()->json(['message' => 'Użytkownika nie ma w pokoju'], 404);
+        }
+        return response()->json(['message' => 'Nie jesteś właścicielem pokoju'], 404);
     }
     public function addFoodToRoom($room_id, $food_id)
     {

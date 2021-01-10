@@ -11,7 +11,11 @@ class Repository  {
         return 'repozytorium dziala';
     }
     public function getUserRooms() {
-        return User::all();
+        //return User::userRooms($id);
+        $user_id = 2;
+        $userRooms = User::where('id', $user_id)->first()->rooms()->get();
+        dd($userRooms);
+        return $userRooms;
     }
 }
 

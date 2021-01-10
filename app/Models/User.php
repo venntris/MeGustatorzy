@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Models\UserRoom;
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -29,7 +31,18 @@ class User extends Authenticatable
     {
         return $this->morphMany('App\Models\Photo', 'photoable');
     }
-
+    public function rooms()
+    {
+        return $this->hasMany('App\Models\UserRoom');
+       /* return $this->hasOneThrough(
+            Room::class,
+            UserRoom::class,
+            'room_id', // Foreign key on the cars table...
+            'id', // Foreign key on the owners table...
+            'id', // Local key on the mechanics table...
+            'user_id' // Local key on the cars table...
+        );*/
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

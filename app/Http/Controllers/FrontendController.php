@@ -17,6 +17,7 @@ class FrontendController extends Controller
 
     public function getUserRooms()
     {
-        return $this->R->getUserRooms();
+        //return $this->R->getUserRooms();
+        dd($this->R->getUserRooms());
     }
 }

@@ -14,7 +14,15 @@ class FoodRatingsSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 6; $i++) {
+        for ($i = 1; $i <= 4; $i++) {
+            DB::table('food_ratings')->insert([
+                'user_id' => 1,
+                'food_id' => $i,
+                'room_id' => 1,
+                'rate' => 4
+            ]);
+        }
+        for ($i = 2; $i <= 6; $i++) {
             DB::table('food_ratings')->insert([
                 'user_id' => $i,
                 'food_id' => 2,

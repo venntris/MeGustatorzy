@@ -80,6 +80,11 @@ class Repository
         return response()->json(['message' => 'Pokój został utworzony']);
 
     }
+    public function getUserRating($user_id)
+    {
+        $ratings User::where('id', $user_id)->first()->ratings()->get();
+
+    }
 }
 
 

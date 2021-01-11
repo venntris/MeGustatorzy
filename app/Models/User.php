@@ -36,10 +36,21 @@ class User extends Authenticatable
         return $this->hasManyThrough(
             Room::class,
             UserRoom::class,
-            'user_id', // Foreign key on the cars table...
-            'id', // Foreign key on the owners table...
-            'id', // Local key on the mechanics table...
-            'room_id' // Local key on the cars table...
+            'user_id',
+            'id',
+            'id',
+            'room_id'
+        );
+    }
+
+    public function ratings() {
+        return $this->hasManyThrough(
+            Food::class,
+            FoodRating::class,
+            'user_id', // FoodRating
+            'id', // Food
+            'id', // User
+            'food_id' // FoodRating
         );
     }
     /**

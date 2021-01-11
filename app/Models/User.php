@@ -44,14 +44,7 @@ class User extends Authenticatable
     }
 
     public function ratings() {
-        return $this->hasManyThrough(
-            Food::class,
-            FoodRating::class,
-            'user_id', // FoodRating
-            'id', // Food
-            'id', // User
-            'food_id' // FoodRating
-        );
+        return $this->hasMany(FoodRating::class);
     }
     /**
      * The attributes that should be hidden for arrays.

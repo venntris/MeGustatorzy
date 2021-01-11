@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class FoodRating extends Model
 {
@@ -16,6 +17,6 @@ class FoodRating extends Model
     public $timestamps = false;
 
     public function food() {
-        return $this->hasMany(Food::class);
+        return $this->belongsTo(Food::class);
     }
 }

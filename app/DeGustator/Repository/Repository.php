@@ -5,6 +5,7 @@ namespace App\DeGustator\Repository;
 use App\DeGustator\Traits\RoomTrait;
 use App\DeGustator\Traits\UserRoomTrait;
 use App\DeGustator\Traits\RoomFoodTrait;
+use App\Models\FoodRating;
 use App\Models\UserRoom;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -82,7 +83,8 @@ class Repository
     }
     public function getUserRating($user_id)
     {
-        $ratings User::where('id', $user_id)->first()->ratings()->get();
+        $rating =  User::where('id', $user_id)->first()->ratings()->with('food')->get();
+        return $rating;
 
     }
 }

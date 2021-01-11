@@ -83,7 +83,7 @@ class Repository
     }
     public function getUserRating($user_id)
     {
-        $rating =  User::where('id', $user_id)->first()->ratings()->with('food')->get();
+        $rating =  User::where('id', $user_id)->first()->ratings()->get();
         return $rating;
 
     }

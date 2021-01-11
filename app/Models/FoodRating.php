@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\QueryBuilder\QueryBuilder;
 
 class FoodRating extends Model
 {
@@ -13,6 +12,9 @@ class FoodRating extends Model
     protected $fillable = [
         'user_id',
         'room_id'
+    ];
+    protected $hidden = [
+        'food_id'
     ];
     public $timestamps = false;
 

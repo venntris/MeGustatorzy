@@ -23,7 +23,7 @@ Route::get('api/room/create-room/{roomName}', [BackendController::class, 'create
 Route::get('api/room/add-food-to-room/{room_id}/{food_id}', [BackendController::class, 'addFoodToRoom'])->name('addFoodToRoom');
 Route::get('api/room/delete/{room_id}/{user_id}', [BackendController::class, 'deleteUserFromRoom'])->name('deleteUserFromRoom');
 
-Route::get('api/user/get-user-rating/{user_id}', [BackendController::class, 'getUserRating'])->name('getUserRating');
+Route::get('api/user/get-user-ratings/{user_id}', [BackendController::class, 'getUserRatings'])->name('getUserRatings');
 
 
 Route::get('/clear-cache', function() {

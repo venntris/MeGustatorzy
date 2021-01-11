@@ -33,8 +33,8 @@ class BackendController extends Controller
     public function deleteUserFromRoom($room_id, $user_id) {
         return $this->R->deleteUserFromRoom($room_id, $user_id);
     }
-    public function getUserRating($user_id) {
-        return $this->R->getUserRating($user_id);
+    public function getUserRatings($user_id) {
+        return $this->R->getUserRatings($user_id);
     }
 
 

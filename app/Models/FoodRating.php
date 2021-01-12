@@ -11,7 +11,9 @@ class FoodRating extends Model
     protected $table = 'food_ratings';
     protected $fillable = [
         'user_id',
-        'room_id'
+        'room_id',
+        'food_id',
+        'rate'
     ];
     protected $hidden = [
         'food_id'

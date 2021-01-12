@@ -25,6 +25,8 @@ Route::get('api/room/delete/{room_id}/{user_id}', [BackendController::class, 'de
 
 Route::get('api/user/get-user-ratings/{user_id}', [BackendController::class, 'getUserRatings'])->name('getUserRatings');
 
+Route::get('api/user/add-rating/{room_id}/{food_id}/{user_id}/{rate}', [BackendController::class, 'addRatings'])->name('addRatings');
+
 
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');

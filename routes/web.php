@@ -22,11 +22,9 @@ Route::get('api/user/get-user-rooms/{user_id}', [BackendController::class, 'getU
 Route::get('api/room/create-room/{roomName}', [BackendController::class, 'createRoom'])->name('createRoom');
 Route::get('api/room/add-food-to-room/{room_id}/{food_id}', [BackendController::class, 'addFoodToRoom'])->name('addFoodToRoom');
 Route::get('api/room/delete/{room_id}/{user_id}', [BackendController::class, 'deleteUserFromRoom'])->name('deleteUserFromRoom');
-
 Route::get('api/user/get-user-ratings/{user_id}', [BackendController::class, 'getUserRatings'])->name('getUserRatings');
-
 Route::get('api/user/add-rating/{room_id}/{food_id}/{user_id}/{rate}', [BackendController::class, 'addRatings'])->name('addRatings');
-
+Route::get('api/room/show-rate/{room_id}', [BackendController::class, 'showRoomRate'])->name('showRoomRate');
 
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');

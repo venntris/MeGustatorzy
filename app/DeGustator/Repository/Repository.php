@@ -83,10 +83,6 @@ class Repository
         return response()->json(['message' => 'Pokój został utworzony']);
 
     }
-    public function getUserRatings($user_id)
-    {
-        return User::where('id', $user_id)->first()->ratings()->get();
-    }
     public function addRatings($room_id, $food_id, $user_id, $rate) {
         if ($this->isFoodHasRate($room_id, $food_id, $user_id)) {
             FoodRating::create([
@@ -99,6 +95,14 @@ class Repository
         }
         return response()->json(['message' => 'Posiłek został już oceniony'], 404);
 
+    }
+    public function getUserRatings($user_id)
+    {
+        return User::where('id', $user_id)->first()->ratings()->get();
+    }
+    public function showRoomRate($room_id)
+    {
+        return FoodRating::where('room_id', $room_id)->with('food')->get();
     }
 }
 

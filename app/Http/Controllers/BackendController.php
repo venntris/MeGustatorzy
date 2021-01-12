@@ -39,6 +39,9 @@ class BackendController extends Controller
     public function addRatings($room_id, $food_id, $user_id, $rate) {
         return $this->R->addRatings($room_id, $food_id, $user_id, $rate);
     }
+    public function showRoomRate($room_id) {
+        return $this->R->showRoomRate($room_id);
+    }
 
 
 }

@@ -15,9 +15,7 @@ class FoodRating extends Model
         'food_id',
         'rate'
     ];
-    protected $hidden = [
-        'food_id'
-    ];
+
     public $timestamps = false;
 
     public function food() {

@@ -9,6 +9,10 @@ require("bootstrap-css-only/css/bootstrap.min.css");
 require("mdbvue/lib/css/mdb.min.css");
 require("@fortawesome/fontawesome-free/css/all.min.css");
 window.Vue = require('vue');
+import  VueRouter from 'vue-router';
+import routes from './routes';
+Vue.use(VueRouter);
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -21,9 +25,17 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+
+
+
+
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('navbar-component', require('./components/NavbarComponent.vue').default);
+Vue.component('navbar-welcome-component', require('./components/NavbarWelcomeComponent.vue').default);
+Vue.component('welcome-component', require('./components/WelcomeComponent.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,4 +45,5 @@ Vue.component('navbar-component', require('./components/NavbarComponent.vue').de
 
 const app = new Vue({
     el: '#app',
+    router: new VueRouter(routes)
 });

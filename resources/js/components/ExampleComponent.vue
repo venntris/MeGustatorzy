@@ -1,5 +1,6 @@
 <template>
     <mdb-btn @click="showHelloIfItWork">Sprawdź działanie Vue.js</mdb-btn>
+    
 </template>
 <script>
 import {

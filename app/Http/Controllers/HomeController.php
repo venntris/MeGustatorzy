@@ -26,8 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        echo $this->G->test();
-        echo $this->R->test();
-        //return view('home');
+        //echo $this->G->test();
+        //echo $this->R->test();
+        return view('home');
     }
 }

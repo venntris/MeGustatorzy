@@ -22,9 +22,12 @@
     },
     "dependencies": {
         "@vue/cli": "^4.5.9",
+        "axios": "^0.21.1",
         "bootstrap": "^4.5.3",
         "jquery": "^3.5.1",
         "mdbvue": "6.7.2",
-        "nvm": "^0.0.4"
+        "nvm": "^0.0.4",
+        "vue": "^2.5.2",
+        "vue-router": "^3.0.1"
     }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackendController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,8 +26,12 @@ Route::get('room/invite/{room_id}/{user_id}', [BackendController::class, 'invite
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-    //good
 });
 
-//Route::post('register', 'RegisterController@register');
-//Route::post('login', 'LoginController@login');
+Route::post('register',[UserController::class, 'register']);
+Route::post('login',[UserController::class, 'login']);
+Route::post('profile',[UserController::class, 'register']);
+
+Route::middleware('auth:api')->get('/user', function(Request $request){
+    return $request->user();
+});

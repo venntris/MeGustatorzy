@@ -21,12 +21,16 @@
 </head>
 <body>
     <div id="app">
-    
-    
+        @if (Route::has('login'))
+            @auth
+                <div><navbar-component></navbar-component></div>
+            @else
+                <div><navbar-welcome-component></navbar-welcome-component></div>
+            @endif
+        @endif
 
-        
-            @yield('content')
-       
+        @yield('content')
+
     </div>
 </body>
 </html>

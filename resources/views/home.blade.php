@@ -2,5 +2,6 @@
 
 @section('content')
 
+    home.blade.php
 
 @endsection

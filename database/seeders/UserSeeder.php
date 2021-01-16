@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Michal',
             'surname' => 'Stefaniak',
-            'email' => 'michal@example.com',
+            'email' => 'michals@example.com',
             'password' => bcrypt('pass'),
         ]);
         DB::table('users')->insert([
@@ -40,15 +40,9 @@ class UserSeeder extends Seeder
             'password' => bcrypt('pass'),
         ]);
         DB::table('users')->insert([
-            'name' => 'Kamil',
-            'surname' => 'Kaślikowski',
-            'email' => 'kamil@example.com',
-            'password' => bcrypt('pass'),
-        ]);
-        DB::table('users')->insert([
             'name' => 'Michał',
             'surname' => 'Berkowicz',
-            'email' => 'michal@example.com',
+            'email' => 'michalb@example.com',
             'password' => bcrypt('pass'),
         ]);
         DB::table('users')->insert([

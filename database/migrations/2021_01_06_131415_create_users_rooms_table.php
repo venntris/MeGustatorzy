@@ -14,10 +14,10 @@ class CreateUsersRoomsTable extends Migration
     public function up()
     {
         Schema::create('users_rooms', function (Blueprint $table) {
-            $table->biginteger('user_ID')->unsigned();
-            $table->foreign('user_ID')->references('id')->on('users');
-            $table->biginteger('room_ID')->unsigned();
-            $table->foreign('room_ID')->references('id')->on('rooms');
+            $table->biginteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->biginteger('room_id')->unsigned();
+            $table->foreign('room_id')->references('id')->on('rooms');
         });
     }
 

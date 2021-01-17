@@ -1,19 +1,23 @@
 <template>
-    <mdb-btn @click="showHelloIfItWork">Sprawdź działanie Vue.js</mdb-btn>
-    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Example Component</div>
+
+                    <div class="card-body">
+                        I'm an example component.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
+
 <script>
-import {
-    mdbBtn
-} from 'mdbvue';
-export default {
-    components: {
-        mdbBtn
-    },
-    methods: {
-        showHelloIfItWork() {
-            alert('Jeśli widzisz ten komunikat, To znaczy, że działa Vue.js');
+    export default {
+        mounted() {
+            console.log('Component mounted.')
         }
     }
-}
 </script>

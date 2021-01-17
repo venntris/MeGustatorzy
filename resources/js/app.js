@@ -34,6 +34,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('navbar-component', require('./components/NavbarComponent.vue').default);
 Vue.component('navbar-welcome-component', require('./components/NavbarWelcomeComponent.vue').default);
 Vue.component('welcome-component', require('./components/WelcomeComponent.vue').default);
+Vue.component('register-component', require('./components/Register.vue').default);
+Vue.component('login-component', require('./components/Login.vue').default);
 
 
 

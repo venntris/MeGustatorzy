@@ -5,6 +5,8 @@ namespace App\DeGustator\Repository;
 use App\DeGustator\Traits\RoomTrait;
 use App\DeGustator\Traits\UserRoomTrait;
 use App\DeGustator\Traits\RoomFoodTrait;
+use App\DeGustator\Traits\AddRate;
+use App\Models\FoodRating;
 use App\Models\UserRoom;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -17,6 +19,7 @@ class Repository
     use UserRoomTrait;
     use RoomFoodTrait;
     use RoomTrait;
+    use AddRate;
 
     function test()
     {
@@ -79,6 +82,27 @@ class Repository
         ]);
         return response()->json(['message' => 'Pokój został utworzony']);
 
+    }
+    public function addRatings($room_id, $food_id, $user_id, $rate) {
+        if ($this->isFoodHasRate($room_id, $food_id, $user_id)) {
+            FoodRating::create([
+                'room_id' => $room_id,
+                'food_id' => $food_id,
+                'user_id' => $user_id,
+                'rate' => $rate,
+            ]);
+            return response()->json(['message' => 'Ocena dodana']);
+        }
+        return response()->json(['message' => 'Posiłek został już oceniony'], 404);
+
+    }
+    public function getUserRatings($user_id)
+    {
+        return User::where('id', $user_id)->first()->ratings()->get();
+    }
+    public function showRoomRate($room_id)
+    {
+        return FoodRating::where('room_id', $room_id)->with('food')->get();
     }
 }
 

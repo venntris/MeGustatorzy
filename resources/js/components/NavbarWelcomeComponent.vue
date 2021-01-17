@@ -1,20 +1,20 @@
 <template>
   <mdb-navbar color="info" dark>
     <mdb-navbar-brand>
-      
+
     </mdb-navbar-brand>
     <mdb-navbar-toggler>
       <mdb-navbar-nav right>
-        <mdb-nav-item to='/login' exact>Zaloguj</mdb-nav-item>
-        <mdb-nav-item to='/register' exact>Zarejestruj</mdb-nav-item>
-        
+        <mdb-nav-item href='/login' exact>Zaloguj</mdb-nav-item>
+        <mdb-nav-item href='/register' exact>Zarejestruj</mdb-nav-item>
+
       </mdb-navbar-nav>
-     
-       
+
+
     </mdb-navbar-toggler>
 
   </mdb-navbar>
-  
+
 </template>
 
 <script>

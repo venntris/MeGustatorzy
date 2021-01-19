@@ -8,6 +8,7 @@ use App\DeGustator\Traits\RoomFoodTrait;
 use App\DeGustator\Traits\AddRate;
 use App\Models\FoodRating;
 use App\Models\UserRoom;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Room;
@@ -26,10 +27,10 @@ class Repository
         return 'repozytorium dziala';
     }
 
-    public function getUserRooms($user_id)
+    public function getUserRooms($user_id) : JsonResponse
     {
         $userRooms = User::where('id', $user_id)->first()->rooms()->get();
-        return $userRooms;
+        return response()->json($userRooms);
     }
 
     public function inviteUserToRoom($room_id, $user_id)

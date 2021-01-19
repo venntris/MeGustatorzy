@@ -7,10 +7,9 @@ use App\Models\User;
 use App\Models\UserRoom;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
-use mysql_xdevapi\Exception;
 use Tests\TestCase;
 
-class createRoomTest extends TestCase
+class UserRoomsTest extends TestCase
 {
     /**
      * A basic test example.
@@ -34,21 +33,17 @@ class createRoomTest extends TestCase
             'user_id' => $user->id,
             'room_id' => $room->id,
         ]);
-        $response = $this->actingAs($user)->postJson('api/room/create-room/testowo');
+        $response = $this->postJson('api/user/get-user-rooms/1');
 
-        if(Room::where('name', 'testowo')->first()) {
-            $response->assertStatus(200)
-                ->assertSuccessful()
-                ->assertJson(["message" => 'Pokój został utworzony']);
-        } else {
-//            fail('Tested link does not create room');
-            throw new \PHPUnit\Runner\Exception("Tested link does not create room");
-        }
+        $response->assertStatus(200)
+            ->assertSuccessful()
+            ->assertJson([
+            ["id" => 1,
+            'owner' => 1,
+            'name' => 'Testowy',
+            'laravel_through_key' => 1],
 
-
-
-
-
+    ]);
 
     }
 }

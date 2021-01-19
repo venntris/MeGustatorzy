@@ -15,14 +15,14 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('user/get-user-rooms/{user_id}', [BackendController::class, 'getUserRooms'])->name('get-user-rooms');
-Route::get('room/create-room/{roomName}', [BackendController::class, 'createRoom'])->name('createRoom');
-Route::get('room/add-food-to-room/{room_id}/{food_id}', [BackendController::class, 'addFoodToRoom'])->name('addFoodToRoom');
-Route::get('room/delete/{room_id}/{user_id}', [BackendController::class, 'deleteUserFromRoom'])->name('deleteUserFromRoom');
-Route::get('user/get-user-ratings/{user_id}', [BackendController::class, 'getUserRatings'])->name('getUserRatings');
-Route::get('user/add-rating/{room_id}/{food_id}/{user_id}/{rate}', [BackendController::class, 'addRatings'])->name('addRatings');
-Route::get('room/show-rate/{room_id}', [BackendController::class, 'showRoomRate'])->name('showRoomRate');
-Route::get('room/invite/{room_id}/{user_id}', [BackendController::class, 'inviteUserToRoom'])->name('inviteUserToRoom');
+Route::post('user/get-user-rooms/{user_id}', [BackendController::class, 'getUserRooms'])->name('get-user-rooms');
+Route::post('room/create-room/{roomName}', [BackendController::class, 'createRoom'])->name('createRoom');
+Route::post('room/add-food-to-room/{room_id}/{food_id}', [BackendController::class, 'addFoodToRoom'])->name('addFoodToRoom');
+Route::post('room/delete/{room_id}/{user_id}', [BackendController::class, 'deleteUserFromRoom'])->name('deleteUserFromRoom');
+Route::post('user/get-user-ratings/{user_id}', [BackendController::class, 'getUserRatings'])->name('getUserRatings');
+Route::post('user/add-rating/{room_id}/{food_id}/{user_id}/{rate}', [BackendController::class, 'addRatings'])->name('addRatings');
+Route::post('room/show-rate/{room_id}', [BackendController::class, 'showRoomRate'])->name('showRoomRate');
+Route::post('room/invite/{room_id}/{user_id}', [BackendController::class, 'inviteUserToRoom'])->name('inviteUserToRoom');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

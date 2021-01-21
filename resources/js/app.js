@@ -36,6 +36,9 @@ Vue.component('navbar-welcome-component', require('./components/NavbarWelcomeCom
 Vue.component('welcome-component', require('./components/WelcomeComponent.vue').default);
 Vue.component('register-component', require('./components/Register.vue').default);
 Vue.component('login-component', require('./components/Login.vue').default);
+Vue.component('logo-component', require('./components/Logo.vue').default);
+Vue.component('footer-component', require('./components/FooterComponent.vue').default);
+Vue.component('invite-component', require('./components/InviteComponent.vue').default);
 
 
 

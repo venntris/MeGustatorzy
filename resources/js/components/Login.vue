@@ -1,44 +1,43 @@
 <template>
-    <!-- Material form login -->
-    <mdb-container>
-        <mdb-row>
-            <mdb-col></mdb-col>
-            <mdb-col col="6">
-                <mdb-card>
-                    <mdb-card-body>
-                        <form>
-                            <p class="h4 text-center mb-4">Logowanie</p>
-                            <div class="grey-text">
-                                <mdb-input label="Email" icon="envelope" type="email" v-model="form.email"/>
-                                <mdb-input label="Your password" icon="lock" type="password" v-model="form.password"/>
-                            </div>
-                            <div class="text-center">
-                                <mdb-btn color="info" @click="login">Zaloguj</mdb-btn>
-                            </div>
-                        </form>
-                    </mdb-card-body>
-                </mdb-card>
-            </mdb-col>
-            <mdb-col></mdb-col>
-        </mdb-row>
-    </mdb-container>
-
-    <!-- Material form login -->
+  <section class="form-elegant">
+    <mdb-row>
+      <mdb-col>
+        <mdb-card>
+          <mdb-card-body class="mx-4">
+            <div class="text-center">
+              <h3 class="dark-grey-text mb-5"><strong>Logowanie</strong></h3>
+            </div>
+            <mdb-input label="Email" icon="envelope" type="email" v-model="form.email"/>
+            <mdb-input label="Hasło" icon="lock" type="password" v-model="form.password"/>
+            <p class="font-small blue-text d-flex justify-content-end pb-3"><a href="#" class="blue-text ml-1"> Odzyskaj hasło</a></p>
+            <div class="text-center mb-3">
+              <mdb-btn type="button" gradient="blue" rounded class="btn-block z-depth-1a" @click="login">Zaloguj</mdb-btn>
+            </div>            
+          </mdb-card-body>
+          <mdb-modal-footer class="mx-5 pt-3 mb-1">
+            <p class="font-small grey-text d-flex justify-content-end">Nie masz konta? <a href="./register" class="blue-text ml-1">Zarejestruj </a></p>
+          </mdb-modal-footer>
+        </mdb-card>
+      </mdb-col>
+    </mdb-row>
+  </section>
 </template>
 
 <script>
-import {mdbInput, mdbBtn, mdbCard, mdbCardBody, mdbContainer, mdbRow, mdbCol} from 'mdbvue';
-
-export default {
-    name: 'Basic',
+  import { mdbRow, mdbCol, mdbCard, mdbCardBody, mdbInput, mdbBtn, mdbIcon, mdbModal, mdbModalBody, mdbModalFooter } from 'mdbvue';
+  export default {
+    name: 'FormsPage',
     components: {
-        mdbInput,
-        mdbBtn,
-        mdbCard,
-        mdbCardBody,
-        mdbContainer,
-        mdbRow,
-        mdbCol
+      mdbRow,
+      mdbCol,
+      mdbCard,
+      mdbCardBody,
+      mdbInput,
+      mdbBtn,
+      mdbIcon,
+      mdbModal,
+      mdbModalBody,
+      mdbModalFooter
     },
     data() {
         return {
@@ -46,7 +45,8 @@ export default {
                 email: '',
                 password: '',
             },
-            errors: []
+            errors: [],
+            showModal: false,
         }
     },
     methods: {
@@ -57,6 +57,7 @@ export default {
             }).then(function (response) {
                 console.log(response);
                 alert("użytkownik Zalogowany");
+                
             })
                 .catch(function (error) {
                     alert("Błąd");
@@ -64,5 +65,20 @@ export default {
                 });
         }
     }
-}
+    
+  }
 </script>
+<style>
+  .form-elegant .font-small {
+    font-size: 0.8rem; }
+
+  .form-elegant .z-depth-1a {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25);
+    box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25); }
+
+  .form-elegant .z-depth-1-half,
+  .form-elegant .btn:hover {
+    -webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+    box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15); }
+</style>
+

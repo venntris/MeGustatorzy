@@ -29,6 +29,10 @@ Route::get('/clear-cache', function() {
 });
 
 Auth::routes();
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
 Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

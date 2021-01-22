@@ -39,6 +39,7 @@ Vue.component('login-component', require('./components/Login.vue').default);
 Vue.component('logo-component', require('./components/Logo.vue').default);
 Vue.component('footer-component', require('./components/FooterComponent.vue').default);
 Vue.component('invite-component', require('./components/InviteComponent.vue').default);
+Vue.component('users-rooms-component', require('./components/UsersRooms.vue').default);
 
 
 

@@ -23,7 +23,7 @@
     <div id="app">
         @if (Route::has('login'))
             @auth
-                <div><navbar-component></navbar-component></div>
+                <div><navbar-component  :user="{{ auth()->user() }}"></navbar-component></div>
             @else
                 <div><navbar-welcome-component></navbar-welcome-component></div>
                 <div class="row justify-content-center" >

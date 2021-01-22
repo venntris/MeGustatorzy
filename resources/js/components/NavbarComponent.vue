@@ -14,7 +14,7 @@
 
         <mdb-dropdown tag="li" class="nav-item" >
 
-          <mdb-dropdown-toggle tag="a" navLink color="info" slot="toggle" class="text-white" icon="user" waves-fixed >Profil</mdb-dropdown-toggle>
+          <mdb-dropdown-toggle tag="a" navLink color="info" slot="toggle" class="text-white" icon="user" waves-fixed >{{this.user.name}}</mdb-dropdown-toggle>
           <mdb-dropdown-menu>
             <mdb-dropdown-item>Moje konto</mdb-dropdown-item>
             <mdb-dropdown-item href="/logout">Wyloguj</mdb-dropdown-item>
@@ -31,6 +31,7 @@
 <script>
   import { mdbNavbar, mdbNavbarBrand, mdbNavbarToggler, mdbNavbarNav, mdbNavItem, mdbDropdown, mdbDropdownToggle, mdbDropdownItem, mdbDropdownMenu } from 'mdbvue';
   export default {
+    props:['user'],
     components: {
       mdbNavbar,
       mdbNavbarBrand,

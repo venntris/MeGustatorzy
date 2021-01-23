@@ -101,7 +101,7 @@
             <div class="text-center">
               <h3 class="dark-grey-text mb-5"><strong>Rejestracja</strong></h3>
             </div>
-            <mdb-input type="text" id="validationCustom10" label="Imię" value="" icon="user" required invalidFeedback="Podaj imię" v-model="form.name"/>
+            <mdb-input type="text" id="validationCustom10" label="Imię" value="" icon="user" required validFeedback="Podaj imię" v-model="form.name"/>
             <mdb-input type="text" id="validationCustom11"  label="Nazwisko" icon="user" required invalidFeedback="Podaj nazwisko" v-model="form.surname" />
             <mdb-input type="email" id="validationCustom12" icon="envelope" label="Email" required invalidFeedback="Nieprawidłowy email." v-model="form.email"/>
             <mdb-input type="password" label="Hasło" icon="lock" required invalidFeedback="Nieprawidłowe hasło." name="password" v-model="form.password" />
@@ -156,6 +156,7 @@
                 "password": this.form.password
             }).then(function (response) {
                 alert("użytkownik zarejestrowany");
+                
             })
                 .catch(function (error) {
                     alert(error);

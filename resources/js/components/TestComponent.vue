@@ -6,8 +6,8 @@
                     <mdb-card-body>
                         <mdb-card-title>To są pokoje, do których jesteś zaproszony</mdb-card-title>
                         <ul>
-                            <li v-for="room in rooms" :key=room.name>
-                                {{room.name}}
+                            <li v-for="gowno in gownos" :key=gowno.name>
+                                {{gowno.name}}
                             </li>
                         </ul>
                     </mdb-card-body>
@@ -33,7 +33,7 @@ name: "UsersRooms",
     },
     data() {
         return {
-            rooms: [],
+            gownos: [],
             
         }
     },
@@ -45,7 +45,7 @@ name: "UsersRooms",
         getRooms() {
             axios.get('http://localhost/api/user/get-user-rooms/'+ this.user.id +'/').then(response => {
                 console.log(response.data);
-                this.rooms = response.data;
+                this.gownos = response.data;
             })
         }
 

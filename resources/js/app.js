@@ -42,6 +42,8 @@ Vue.component('invite-component', require('./components/InviteComponent.vue').de
 Vue.component('users-rooms-component', require('./components/UsersRooms.vue').default);
 Vue.component('test-component', require('./components/TestComponent.vue').default);
 Vue.component('create-room-component', require('./components/CreateRoomComponent.vue').default);
+Vue.component('profile-component', require('./components/ProfileComponent.vue').default);
+Vue.component('user-ratings-component', require('./components/UserRatings.vue').default);
 
 
 

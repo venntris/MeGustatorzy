@@ -40,6 +40,10 @@ Vue.component('logo-component', require('./components/Logo.vue').default);
 Vue.component('footer-component', require('./components/FooterComponent.vue').default);
 Vue.component('invite-component', require('./components/InviteComponent.vue').default);
 Vue.component('users-rooms-component', require('./components/UsersRooms.vue').default);
+Vue.component('test-component', require('./components/TestComponent.vue').default);
+Vue.component('create-room-component', require('./components/CreateRoomComponent.vue').default);
+
+
 
 
 

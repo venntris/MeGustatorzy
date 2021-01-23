@@ -6,7 +6,7 @@
                     <mdb-card-body>
                         <mdb-card-title>To są pokoje, do których jesteś zaproszony</mdb-card-title>
                         <ul>
-                            <li v-for="room in rooms"><a href="http://localhost/room-"{{room.id}}>{{room.name}}</a></li>
+                            <li v-for="room in rooms" :key=room.id><a href="http://localhost/room-" {{room.id}}>{{room.name}}</a></li>
                         </ul>
                         <mdb-input type="text" v-model="text"/>
                         <button @click="getRooms">{{text}}</button>

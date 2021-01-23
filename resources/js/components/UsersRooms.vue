@@ -42,7 +42,7 @@ name: "UsersRooms",
         },
     methods: {
         getRooms() {
-            axios.post('http://localhost/api/user/get-user-rooms/'+ this.user.id +'/').then(response => {
+            axios.post('http://cyfrowynajemnik.pl/api/user/get-user-rooms/'+ this.user.id +'/').then(response => {
                 this.rooms = response.data;
             })
         }

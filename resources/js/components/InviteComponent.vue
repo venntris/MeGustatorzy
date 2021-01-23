@@ -10,7 +10,7 @@
             <mdb-input label="Email" icon="envelope" type="email" v-model="form.email"/>
             <div class="text-center mb-3">
               <mdb-btn type="button" gradient="blue" rounded class="btn-block z-depth-1a" @click="zapros">Zaproś</mdb-btn>
-            </div>            
+            </div>
           </mdb-card-body>
         </mdb-card>
       </mdb-col>
@@ -44,21 +44,21 @@
     },
     methods: {
         zapros() {
-            axios.post('http://localhost/api/', {
+            axios.post('http://cyfrowynajemnik.pl/api/', {
                 "email": this.form.email,
-               
+
             }).then(function (response) {
                 console.log(response);
                 alert("użytkownik zaproszony");
-                
+
             })
                 .catch(function (error) {
-                   
+
                     alert(error);
                 });
         }
     }
-    
+
   }
 </script>
 <style>

@@ -12,7 +12,7 @@
             <p class="font-small blue-text d-flex justify-content-end pb-3"><a href="#" class="blue-text ml-1"> Odzyskaj hasło</a></p>
             <div class="text-center mb-3">
               <mdb-btn type="button" gradient="blue" rounded class="btn-block z-depth-1a" @click="login">Zaloguj</mdb-btn>
-            </div>            
+            </div>
           </mdb-card-body>
           <mdb-modal-footer class="mx-5 pt-3 mb-1">
             <p class="font-small grey-text d-flex justify-content-end">Nie masz konta? <a href="./register" class="blue-text ml-1">Zarejestruj </a></p>
@@ -51,13 +51,13 @@
     },
     methods: {
         login() {
-            axios.post('http://localhost/api/login', {
+            axios.post('http://cyfrowynajemnik.pl/api/login', {
                 "email": this.form.email,
                 "password": this.form.password
             }).then(function (response) {
                 console.log(response);
                 alert("użytkownik Zalogowany");
-                
+
             })
                 .catch(function (error) {
                     alert("Błąd");
@@ -65,7 +65,7 @@
                 });
         }
     }
-    
+
   }
 </script>
 <style>

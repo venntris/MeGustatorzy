@@ -20,7 +20,7 @@
     </mdb-container>
     <div class="footer-copyright text-center py-3">
       <mdb-container fluid>
-        &copy; 2021 Prawa autorskie: <!--<a href="https://www.MDBootstrap.com"> --> Megustatorzy Pwsz w Legnicy </a>
+        &copy; 2021 Prawa autorskie: <a href="#"> Megustatorzy Pwsz w Legnicy </a>
       </mdb-container>
     </div>
   </mdb-footer>

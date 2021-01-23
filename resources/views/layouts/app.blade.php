@@ -20,27 +20,35 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+
     <div id="app">
-        @if (Route::has('login'))
-            @auth
-                <div><navbar-component  :user="{{ auth()->user() }}"></navbar-component></div>
-            @else
-                <div><navbar-welcome-component></navbar-welcome-component></div>
-                <div class="row justify-content-center" >
-        <div class="col-md-8">
-        <div><logo-component></logo-component> </div>
+        <div class="content" style="min-height: calc(110vh - 120px)" >
+            @if (Route::has('login'))
+               @auth
+                    <div><navbar-component  :user="{{ auth()->user() }}"></navbar-component></div>
+                @else
+                    <div><navbar-welcome-component></navbar-welcome-component></div>
+                
+        <!-- <div class="col-md-12">
+        <div class="row justify-content-center" style="display: flex align-items: center height: 200px">
+                                                       
+        <div ><logo-component></logo-component> </div>
         </div>
-        </div>
-            @endif
-        @endif
+        </div> -->
+              @endif
+          @endif
        
         
        
          
-        
+      
         @yield('content')
-        <div class="d-flex end"></div>
-        <div><footer-component></footer-component></div>
+            <div class="d-flex end"></div>
+        </div>  
+        
+        <!-- <div><footer-component></footer-component></div> -->
+        <footer><footer-component></footer-component></footer>
+    
     </div>
 </body>
 </html>

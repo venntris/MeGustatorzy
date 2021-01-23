@@ -1,4 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    welcome.blade.php
+<!-- <div class="col-md-12"> -->
+        <!-- <div class="row justify-content-center" style="display: flex; align-items: center; height: 100%"> -->
+                                                       
+        <div ><logo-component></logo-component> </div>
+        <!-- </div> -->
+        <!-- </div> -->
 @endsection

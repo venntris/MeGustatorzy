@@ -6,10 +6,10 @@
                     <mdb-card-body>
                         <mdb-card-title>To są pokoje, do których jesteś zaproszony</mdb-card-title>
                         <ul>
-                            <li v-for="room in rooms"><a href="http://localhost/room-"{{room.id}}>{{room.name}}</a></li>
+                            <li v-for="room in rooms" :key="room.id">
+                                <a :href="'http://localhost/room-' + room.id">{{room.name}}</a>
+                            </li>
                         </ul>
-                        <mdb-input type="text" v-model="text"/>
-                        <button @click="getRooms">{{text}}</button>
                     </mdb-card-body>
 
                 </mdb-card>
@@ -34,28 +34,19 @@ name: "UsersRooms",
     data() {
         return {
             rooms: [],
-            text: 'qwe',
         }
     },
     created:
         function () {
-            //this.getRooms();
+            this.getRooms();
         },
     methods: {
         getRooms() {
-            axios.get('http://localhost/api/user/get-user-rooms/'+ this.user.id +'/').then(response => {
-                console.log(response.data);
+            axios.post('http://localhost/api/user/get-user-rooms/'+ this.user.id +'/').then(response => {
                 this.rooms = response.data;
             })
         }
 
-    },
-    watch: {
-        text: function() {
-            if(this.text.length >= 5 ) {
-                alert("Wyraz ma więcej niż 5 liter");
-            }
-        }
     }
 }
 </script>

@@ -40,7 +40,7 @@
        
         
        
-         
+         <div class="col-md-12" style="height:50px"></div>
       
         @yield('content')
             <div class="d-flex end"></div>

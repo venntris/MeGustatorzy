@@ -26,11 +26,21 @@
                 <div><navbar-component></navbar-component></div>
             @else
                 <div><navbar-welcome-component></navbar-welcome-component></div>
+                <div class="row justify-content-center" >
+        <div class="col-md-8">
+        <div><logo-component></logo-component> </div>
+        </div>
+        </div>
             @endif
         @endif
-
+       
+        
+       
+         
+        
         @yield('content')
-
+        <div class="d-flex end"></div>
+        <div><footer-component></footer-component></div>
     </div>
 </body>
 </html>

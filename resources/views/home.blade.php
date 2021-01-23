@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')
+        @section('content')
 
-    home.blade.php
+        <users-rooms-component :user="{{ auth()->user() }}"></users-rooms-component>
 
-@endsection
+        @endsection
+
